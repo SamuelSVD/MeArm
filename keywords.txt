@@ -1,6 +1,7 @@
 # Datatypes (KEYWORD1)
 MeServo	KEYWORD1
 MeArm	KEYWORD1
+SerialMeArm	KEYWORD1
 
 # Methods and Functions (KEYWORD2)
 setLimits	KEYWORD2
@@ -12,6 +13,7 @@ setOffsets	KEYWORD2
 goTo	KEYWORD2
 closeGrip	KEYWORD2
 openGrip	KEYWORD2
+handleMessage	KEYWORD2
 
 # Constants (LITERAL1)
 L1	LITERAL1

@@ -3,8 +3,11 @@
 
 #define L1   6 //cm
 #define L2   8 //cm
-
+#define GOOD_MESSAGE 0
+#define BAD_MESSAGE_LENGTH -1
+#define BAD_MESSAGE_ID -2
 #include <Servo.h>
+#include <Arduino.h>
 
 class MeServo: public Servo
 {
@@ -38,5 +41,12 @@ class MeArm
     void openGrip();
 };
 
+class SerialMeArm: public MeArm
+{
+  public:
+    SerialMeArm(int basePin, int RadialPin, int zPin, int gripPin);
+    int handleMessage(String message);
+};
+  
 #endif
 

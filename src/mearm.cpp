@@ -1,5 +1,5 @@
-#include <Servo.h>
 #include "MeArm.h"
+#include <Servo.h>
 #include <Arduino.h>
 
 MeServo::MeServo()
@@ -104,3 +104,20 @@ void MeArm::openGrip()
   grip->write(gripAngle);
 }
 
+SerialMeArm::SerialMeArm(int basePin, int radialPin, int zPin, int gripPin) : MeArm(basePin, radialPin, zPin, gripPin){}
+
+//Expecting a message in the format of:
+//MAAABB.BCC.CD
+int SerialMeArm::handleMessage(String message)
+{
+  if (message.length() != 15) return BAD_MESSAGE_LENGTH;
+  if (message.charAt(0) != 'M') return BAD_MESSAGE_ID;
+  int baseAngle = strtol(message.substring(1,4).c_str(), NULL, 10);
+  float radial  = strtol(message.substring(4, 6).c_str(), NULL, 10) + strtol(message.substring(7,8).c_str(), NULL, 10)/10.0;
+  float z       = strtol(message.substring(8, 10).c_str(), NULL, 10) + strtol(message.substring(11,12).c_str(), NULL, 10)/10.0;
+  bool grip = (message.charAt(12) == '1');
+  goTo(radial, z, baseAngle);
+  if (grip) closeGrip();
+  else      openGrip();
+  return GOOD_MESSAGE;
+}
