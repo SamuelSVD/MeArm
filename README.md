@@ -14,7 +14,7 @@ Normally you won't have to use `MeArm::setOffsets(base, radial, z, grip)`. If yo
 
 Example: `meArm->setAngles(0, 145, 90, 0);`
 
-Once you've got that set up, replace `setAngles` with `setOffsets` and subtract the offsetValues like below:
+Once you've got that set up, replace `setAngles` with `setOffsets` like below:
 
 Example: `meArm->setOffsets(0, 145-90, 90, 0);`
 ## Controlling the MeArm
