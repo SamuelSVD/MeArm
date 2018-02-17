@@ -11,15 +11,14 @@ int pos;
 bool dir = true;
 
 void setup() {
-//  servo.attach(3);// put your setup code here, to run once:
-  meArm = new MeArm(3, 5, 6, 11);
-  meArm->setOffsets(0, 135, 0, 0);
+  meArm = new MeArm(9, 6, 5, 3);
+  meArm->setOffsets(0, 145, 90, 20);
   Serial.begin(115200);
 }
 
 void doMove(int angle)
 {
-  if (!dir) meArm->closeGrip();
+  if (dir) meArm->closeGrip();
   else meArm->openGrip();
   meArm->goTo(7+(float)(pos-90)/20, 4.0+ (180.0-pos) / 50, 80-pos/2);
   delay(DELAY);

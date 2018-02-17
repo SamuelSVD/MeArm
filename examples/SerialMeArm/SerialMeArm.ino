@@ -7,8 +7,9 @@ String message;
 bool messageReady = false;
 
 void setup() {
-  meArm = new SerialMeArm(3, 5, 6, 11);
-  meArm->setOffsets(0, 135, 0, 0);
+  meArm = new SerialMeArm(9, 6, 5, 3);
+  meArm->setOffsets(0, 145, 90, 20);
+  meArm->setAngles(90, 90, 0, 0);
   Serial.begin(115200);
 }
 
