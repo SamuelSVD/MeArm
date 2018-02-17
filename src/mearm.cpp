@@ -42,9 +42,11 @@ MeArm::MeArm(int basePin, int radialPin, int zPin, int gripPin)
   grip   = new MeServo;
   base->attach(basePin);
   radial->attach(radialPin);
+  radial->setOffset(180);
   radial->setLimit(130);
   radial->setDirection(false);
   z->attach(zPin);
+  z->setOffset(180);
   z->setDirection(false);
   z->setLimit(130);
   grip->attach(gripPin);

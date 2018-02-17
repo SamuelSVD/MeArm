@@ -7,10 +7,10 @@ String message;
 bool messageReady = false;
 
 void setup() {
+  Serial.begin(115200);
   meArm = new SerialMeArm(9, 6, 5, 3);
   meArm->setOffsets(0, 145, 90, 20);
   meArm->setAngles(90, 90, 0, 0);
-  Serial.begin(115200);
 }
 
 void loop() {
