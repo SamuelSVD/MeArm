@@ -16,7 +16,7 @@ Example: `meArm->setAngles(0, 145, 90, 0);`
 
 Once you've got that set up, replace `setAngles` with `setOffsets` like below:
 
-Example: `meArm->setOffsets(0, 145-90, 90, 0);`
+Example: `meArm->setOffsets(0, 145, 90, 0);`
 ## Controlling the MeArm
 Once you have the MeArm set up you can choose which method of control you would like. You can control the MeArm's servos directly by calling `setAngles(..)` or you can control the desired arm position by using `goTo(...)`.
 
