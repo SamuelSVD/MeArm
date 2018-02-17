@@ -77,12 +77,6 @@ void MeArm::setOffsets(int baseOffset, int radialOffset, int zOffset, int gripOf
 
 void MeArm::goTo(float r, float z, int theta)
 {
-  Serial.print(r);
-  Serial.print(' ');
-  Serial.print(z);
-  Serial.print(' ');
-  Serial.print(theta);
-  Serial.print(':');
   float p = sqrt(r*r+z*z);
   float beta = acos((L1*L1 + L2*L2 - p*p) /(2 * L1 * L2));
   float alpha = atan2(z, r);
